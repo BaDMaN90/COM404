@@ -1,31 +1,21 @@
-separator = ("____________________________________________________________________________________________")
-print(separator)
-print("| Hi, welcome to the program. I would like to know you better. Could you please tell me... ")
-print(separator)
-name = input("| what is your name? \n| ")
-age =  int(input("| what is your age? \n| "))
-print(separator)
+import time
+basket = []
 
-print("| nice to meet you " + name + "!")
-decision = str(input("| would you like to buy some alcohol?: \n| "))
-print(separator)
-answer = "yes"
+def purchase_request():
 
-if decision == answer:
-    if age >= 25:
-        print("| yay")
-        
-    elif age >= 18:
-        print("| yay, can i please see your ID")
-        
-    else:
-        print("| Meh, I cannot see you any alcohol")
-        
+    decision = str(input("| would you like to buy some alcohol?: \n| "))
+    print(separator)
+    answer = "yes"
+    if decision == answer:
+        alcohol_function()
 
+def alcohol_function():
+    
     beer = ["stella", "kronnenbourg", "foster", "san miguel"]
     whiskey = ["Johnnie walker", "Jack daniels", "Jameson"]
     gin = ["bombay sapphire", "tanqueray", "mahon"]
-    alcohol = input("| I have ... beer, whiskey or gin? \n| ")
+    print("| I have many... beer's, whiskey's and gin's. Would you like to browse any?")
+    alcohol = input("| Please type 'beer' or 'whiskey' or 'gin' \n| ")
 
     if alcohol == "beer":
         print(separator)
@@ -35,13 +25,55 @@ if decision == answer:
     elif alcohol == "whiskey":
         print(separator)
         print("| Whiskey i have are: .. ")
-        print(*whiskey, sep='\n| ')
+        print("|" ,*whiskey, sep='\n| ')
         print(separator)
     elif alcohol == "gin":  
         print(separator)
         print("| Gin's i have are: .. ")
-        print(*gin, sep='\n| ')
+        print("|" ,*gin, sep='\n| ')
         print(separator)
     else:
         print("sorry, I do not have that")
+
+def alcohol_purchase():
+
+    item = input("please choose your item.")
+    basket.append(item)
+    decision = str(input("| would you like to buy more alcohol?: \n| "))
+    print(separator)
+    answer = "yes"
+    if decision == answer:
+        alcohol_purchase()
+    else:
+        print("your total shopping is: ", *basket)
+
+separator = ("____________________________________________________________________________________________")
+print(separator)
+print("| Hi, welcome to the alcohol shopping program. I need to verify some information. \n| Could you please tell me... ")
+print(separator)
+name = input("| what is your name? \n| ")
+print(separator)
+print("| nice to meet you " + name + "!")
+print(separator)
+age =  int(input("| what is your age? \n| "))
+print(separator)
+
+
+
+if age >= 25:
+    print("| Yay, you are allowed to make a purchase")
+    purchase_request()
+        
+elif age >= 18:
+    print("| yay, can i please see your ID before i will allow to make a purchase")
+    time.sleep(1)
+    print("| scanning ID...")
+    time.sleep(1)
+    print("| Age verified, thank you.")
+    purchase_request()
+else:
+   print("| Sorry, I cannot sell you any alcohol")
+
+alcohol_purchase()
+
 print("thank you, bye")
