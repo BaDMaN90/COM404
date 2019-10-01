@@ -53,6 +53,7 @@ def alcohol_purchase():
     if decision == answer:
         alcohol_function()
     else:
+        time.sleep(1)
         print("| your total shopping is: ", *basket)
         print(separator)
         time.sleep(2)
@@ -81,6 +82,8 @@ elif age >= 18:
     print("| scanning ID...")
     time.sleep(3)
     print("| Age verified, thank you.")
+    print(separator)
+    time.sleep(1)
     purchase_request()
 else:
    print("| Sorry, I cannot sell you any alcohol")
