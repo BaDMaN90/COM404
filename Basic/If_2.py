@@ -46,7 +46,7 @@ def alcohol_function():
 def alcohol_purchase():
 
     item = input("| Please choose your item: \n|")
-    basket.append(item)
+    basket.append('\n|>' + item)
     decision = str(input("| would you like to buy more alcohol? \'yes\' or \'no\' \n| "))
     print(separator)
     answer = "yes"
