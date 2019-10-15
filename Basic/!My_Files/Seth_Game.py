@@ -1,5 +1,5 @@
-# This is a RPG game for a Python 3
-# Create your hero 'Knight' or 'Sorcerer'.
+print("This is a RPG game for a Python 3")
+print("Create your hero 'Knight' or 'Sorcerer'.")
 
 hero_name = ""
 hero_class = ""
@@ -27,3 +27,4 @@ def create_hero_class():
         print("Please come back when you are ready", hero_name)
 
 create_hero_name()
+print("hello")
