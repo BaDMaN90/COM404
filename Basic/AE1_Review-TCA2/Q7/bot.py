@@ -1,5 +1,4 @@
 import sys
-
 from functions import under, over, both, grid
 
 def program(word, action):
