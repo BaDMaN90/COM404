@@ -1,3 +1,4 @@
+import time
 #funtion visit have 1 variable "ghost"
 def visit(ghost):
     #decision of output depends on the function visit call
@@ -10,5 +11,7 @@ def visit(ghost):
 
 #calling the function visit with different string input
 visit("Ghost of Christmas Past") 
+time.sleep(2)
 visit("Ghost of Christmas Present") 
+time.sleep(2)
 visit("Ghost of Christmas Future")
