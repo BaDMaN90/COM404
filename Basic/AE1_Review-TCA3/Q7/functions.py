@@ -13,4 +13,7 @@ def left_triangle(five_digit_number):
         y+=1
 
 def right_triangle(five_digit_number):
-    print("five_digit_number + five_digit_number")
+        for y in range(1,len(five_digit_number)+1,1):
+            print(" "*(len(five_digit_number)-y) ,end='')
+            print(str(five_digit_number[0:y]))
+            y+=1
