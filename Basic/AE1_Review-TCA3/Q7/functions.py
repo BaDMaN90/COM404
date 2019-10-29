@@ -8,8 +8,8 @@ def ASCII_triangle(five_digit_number):
             x +=1
 
 def left_triangle(five_digit_number):
-    for y in range(0,len(five_digit_number)+1,1):
-        print(str(five_digit_number[1,y]))
+    for y in range(1,len(five_digit_number)+1,1):
+        print(str(five_digit_number[0:y]))
         y+=1
 
 def right_triangle(five_digit_number):
