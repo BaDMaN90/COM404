@@ -16,7 +16,10 @@ def program(word, action):
 
     elif action =="grid":
         grid_size = int(input("what size of grid would you like to display?\n"))
-        grid(word,grid_size)
+        if grid_size >= 1:
+            grid(word,grid_size)
+        else:
+            print("Grid size need to by higher then 0")
 
     else:
         print("Invalid action. Please try again.")

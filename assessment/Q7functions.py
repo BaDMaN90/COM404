@@ -20,6 +20,9 @@ def grid(emoji,grid_size):
     #second loop will print the correct patternt in the raw
     for x in range(grid_size):
         for operator in range(-1,grid_size):
+            #operator range is from -1 to grid_size
+            #program will print piramids followed by face only on the first print. this will make sure that if grid size is 1 then the print still work.
+            #else the program will print 5 piramids followed by a face
             if operator <= -1 or operator == grid_size-1:
                 print("/\/\/\\ ", end ="")
                 if operator != grid_size-1:
