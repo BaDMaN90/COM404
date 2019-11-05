@@ -71,14 +71,14 @@ class bot:
         self.display_shield()
 
     def __str__(self):
-        print("Bot summary: \nName: {} \nAge: {} \nEnergy: {} \nShield level: {}".format(self.name, self.age, self.energy, self.shield_level))
+        return "Bot summary: \nName: {} \nAge: {} \nEnergy: {}% \nShield level: {}".format(self.name, self.age, self.energy, self.shield_level)
 
 
-filip = bot("Filip",29, 80, 10)
-darren = bot("Darren",30, 100)
-noob = bot("noob", 15, 20)
+filip = bot("Filip",29, 80, 50)
+darren = bot("Darren",30, 100, 30)
+noob = bot("noob", 15, 20, 50)
+
 #filip.display_name()
 #filip.display_age()
-filip.__str__()
 #darren.display_energy()
 #noob.display_energy()
