@@ -48,15 +48,21 @@ class Gui(Tk):
         
  
     def __buy_button_clicked(self, event):
-        no_of_tickets = int(self.add_tickets_entry.get())
-        if no_of_tickets >= 2:
-            info_message = "You have bought " + str(no_of_tickets) + " tickets!"
-        elif no_of_tickets == 1:
-            info_message = "You have bought " + str(no_of_tickets) + " ticket!"
-        else:
-            info_message = "invalid input!"
-        messagebox.showinfo("Purchased!", info_message)
-        #self.add_tickets_entry.delete()
+        no_of_tickets = self.add_tickets_entry.get()
+        try:
+            int(no_of_tickets)
+            if int(no_of_tickets) >= 2:
+                info_message = "You have bought " + str(no_of_tickets) + " tickets!"
+                messagebox.showinfo("Purchased!", info_message)
+            elif int(no_of_tickets) == 1:
+                info_message = "You have bought " + str(no_of_tickets) + " ticket!"
+                messagebox.showinfo("Purchased!", info_message)
+            else:
+                info_message = "invalid input!"
+                messagebox.showinfo("Try Again.", info_message)           
+        except ValueError:
+            info_message = "Please enter the number of tickets."
+            messagebox.showinfo("Try Again.", info_message)
 
 gui = Gui()
 gui.mainloop()  
