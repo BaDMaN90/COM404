@@ -111,7 +111,9 @@ class Gui(Tk):
     
         
     def __check_button_clicked(self, event):
+        #verification statment
         if self.check_var_1.get() == 1 and self.check_var_2.get() == 1 and self.check_var_3.get() == 1:
+            #if all the check buttons are 'Yes'
             info_message = "Passport is Valid."
             messagebox.showinfo("Passport Result", info_message)
         else:
