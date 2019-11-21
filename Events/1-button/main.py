@@ -65,4 +65,4 @@ class Gui(Tk):
             messagebox.showinfo("Try Again.", info_message)
 
 gui = Gui()
-gui.mainloop()  
+gui.mainloop()
