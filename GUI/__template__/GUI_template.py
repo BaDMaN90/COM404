@@ -9,7 +9,8 @@ class Gui(Tk):
         Title = "GUI"
         Heading = "Heading Label"
         Instruction = "Instruction Label"
-
+        
+        Label_one = "Label 1:"
         Button_one_on = "yes"
         Button_one = "Button 1"
         
@@ -19,6 +20,7 @@ class Gui(Tk):
         # main attributes
         self.heading = Heading
         self.instruction = Instruction
+        self.label_one = Label_one
         self.button_one = Button_one
 
         # set window attributes
@@ -43,7 +45,7 @@ class Gui(Tk):
         self.frame = Frame()
         self.frame.grid(row = 0, column = 0)
         #style
-        self.frame.configure(bg = "grey", bd = 10)
+        self.frame.configure(bg = "light grey", bd = 10)
 
 # Main Frame ----------------------
     def add_main_frame(self):
@@ -51,22 +53,22 @@ class Gui(Tk):
         self.main_frame = Frame(self.frame)
         self.main_frame.grid(row = 0, column = 0)
         #style
-        self.main_frame.configure(bg = "light grey", bd = 10)
+        self.main_frame.configure(bg = "#eee", bd = 0)
 
     def add_heading_label(self):
         self.heading_label = Label(self.main_frame)
         self.heading_label.grid(row=0, column=0)
-        self.heading_label.configure(bg = "light grey", bd = 10, text = self.heading, font = "Arial 16")
+        self.heading_label.configure(bg = "#eee", bd = 10, text = self.heading, font = "Arial 16")
 
     def add_instruction_label(self):
         self.instruction_label = Label(self.main_frame)
         self.instruction_label.grid(row=1, column=0)
-        self.instruction_label.configure(bg = "light grey", text = self.instruction, font = "Arial 12")
+        self.instruction_label.configure(bg = "#eee", text = self.instruction, font = "Arial 12")
 
     def add_example_button(self):
         self.example_button = Button(self.main_frame)
         self.example_button.grid(row=3, column=0)
-        self.example_button.configure(bg = "grey", text = self.button_one, font = "Arial 12")
+        self.example_button.configure(bg = "#fee", width = 40, text = self.button_one, font = "Arial 10")
 
         
 # Content frame --------------------------
@@ -75,19 +77,19 @@ class Gui(Tk):
         self.content_frame = Frame(self.main_frame)
         self.content_frame.grid(row = 2, column = 0)
         #style
-        self.content_frame.configure(bg = "light grey", bd = 10)
+        self.content_frame.configure(bg = "#eee", bd = 10)
 
 # Content ---------------------------
 
     def add_example_label(self):
         self.example_label = Label(self.content_frame)
         self.example_label.grid(row=0, column=0)
-        self.example_label.configure(bg = "light grey", text = "Example Label", font = "Arial 12")
+        self.example_label.configure(bg = "#eee", text = self.label_one, font = "Arial 10")
 
     def add_example_entry(self):
         self.example_textbox = Entry(self.content_frame)
         self.example_textbox.grid(row=0, column=1)
-        self.example_textbox.configure(bg = "light grey", width = 30)
+        self.example_textbox.configure(bg = "white", fg = "#f00",  width = 30, font = "Arial 10")
 
 
 
