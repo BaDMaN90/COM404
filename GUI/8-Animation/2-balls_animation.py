@@ -16,7 +16,7 @@ class AnimatedGui(Tk):
 
         # set animation attributes
         self.image1_x_pos = 100
-        self.image1_y_pos = 100
+        self.image1_y_pos = 0
         self.image1_x_change = 1
         self.image1_y_change = 1
 
@@ -35,31 +35,33 @@ class AnimatedGui(Tk):
 
     # the timer tick function    
     def image_one_tick(self):
-        posx = self.image1_x_pos + 50
-        posy = self.image1_y_pos + 50
+        posx = self.image1_x_pos
+        posy = self.image1_y_pos
         changex = self.image1_x_change
         changey = self.image1_y_change
-        if posx >= 50 and posx <= 250 and posy >= 50 and posy <= 250:
-            self.image1_x_pos = self.image1_x_pos + changex
-            self.image1_y_pos = self.image1_y_pos - changey
-            self.image1_label.place(x=self.image1_x_pos, y=self.image1_y_pos)
-        
-        elif posx >= 251 and posx <= 450 and posy >= 50 and posy <= 250:
+        if posx >= 100 and posx <= 499 and posy >= 0 and posy <= 399:
             self.image1_x_pos = self.image1_x_pos + changex
             self.image1_y_pos = self.image1_y_pos + changey
             self.image1_label.place(x=self.image1_x_pos, y=self.image1_y_pos)
         
-        elif posx >= 251 and posx <= 450 and posy >= 251 and posy <= 450:
+        elif posx >= 401 and posx <= 500 and posy >= 400 and posy <= 498:
             self.image1_x_pos = self.image1_x_pos - changex
             self.image1_y_pos = self.image1_y_pos + changey
             self.image1_label.place(x=self.image1_x_pos, y=self.image1_y_pos)
         
-        elif posx >= 50 and posx <= 250 and posy >= 251 and posy <= 450:
+        elif posx >= 0 and posx <= 401 and posy >= 100 and posy <= 500:
             self.image1_x_pos = self.image1_x_pos - changex
             self.image1_y_pos = self.image1_y_pos - changey
             self.image1_label.place(x=self.image1_x_pos, y=self.image1_y_pos)
         
+        elif posx >= 0 and posx <= 99 and posy >= 0 and posy <= 99:
+            self.image1_x_pos = self.image1_x_pos + changex
+            self.image1_y_pos = self.image1_y_pos - changey
+            self.image1_label.place(x=self.image1_x_pos, y=self.image1_y_pos)
+        else:
+            pass
         # ticker
+        print(self.image1_x_pos, self.image1_y_pos)
         self.after(10, self.image_one_tick)
 
     def image_two_tick(self):
