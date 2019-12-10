@@ -36,12 +36,12 @@ class Gui(Tk):
         self.button_animation = Button_animation
 
         # load resources
-        self.green_tick = PhotoImage(file="green_tick.gif")
-        self.red_cross = PhotoImage(file="red_cross.gif")
-        self.default_image = PhotoImage(file="default.gif")
-        self.weekly_image = PhotoImage(file="weekly.gif")
-        self.monthly_image = PhotoImage(file="monthly.gif")
-        self.yearly_image = PhotoImage(file="yearly.gif")
+        self.green_tick = PhotoImage(file="GUI\TCA1-practice\green_tick.gif")
+        self.red_cross = PhotoImage(file="GUI\TCA1-practice\\red_cross.gif")
+        self.default_image = PhotoImage(file="GUI\TCA1-practice\default.gif")
+        self.weekly_image = PhotoImage(file="GUI\TCA1-practice\weekly.gif")
+        self.monthly_image = PhotoImage(file="GUI\TCA1-practice\monthly.gif")
+        self.yearly_image = PhotoImage(file="GUI\TCA1-practice\yearly.gif")
 
         # set animation attributes
         self.animation_window_width = 348
@@ -50,6 +50,7 @@ class Gui(Tk):
         self.image_y_pos = 0
         self.image_x_change = 1
         self.image_y_change = 1
+        self.tick_time = 10
 
         # set window attributes
         self.title(Title)
@@ -210,40 +211,50 @@ class Gui(Tk):
         if self.animation_variable == 1:
             self.button_animation = "Stop Animation"
             self.animation_button.configure(bg = "#fee", width = 40, text = self.button_animation, font = "Arial 10", pady = 1, padx = 10)
-            self.run_animation()
+            self.run_animation()    
         elif self.animation_variable == 2:
             self.button_animation = "Start Animation"
             self.animation_button.configure(bg = "#fee", width = 40, text = self.button_animation, font = "Arial 10", pady = 1, padx = 10)
             self.animation.configure(bg = "#eee", bd = 4, height = self.animation_window_height, width = self.animation_window_width) 
+            self.tick_time += 4
 
     def run_animation(self):
+        if self.type_button_variable == 1:
+            self.image_label.configure(image=self.weekly_image)
+        elif self.type_button_variable == 2:
+            self.image_label.configure(image=self.monthly_image)
+        elif self.type_button_variable == 3:
+            self.image_label.configure(image=self.yearly_image)
+
         posx = self.image_x_pos
         posy = self.image_y_pos
         changex = self.image_x_change
         changey = self.image_y_change
-        if posx >= 0 and posx <= 141 and posy >= 0 and posy <= 79:
-            self.image_x_pos = self.image_x_pos - changex
-            self.image_y_pos = self.image_y_pos + changey
-            self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
-        
-        elif posx >= 0 and posx <= 138 and posy >= 80 and posy <= 159:
-            self.image_x_pos = self.image_x_pos + changex
-            self.image_y_pos = self.image_y_pos + changey
-            self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
-        
-        elif posx >= 139 and posx <= 268 and posy >= 80 and posy <= 161:
-            self.image_x_pos = self.image_x_pos + changex
-            self.image_y_pos = self.image_y_pos - changey
-            self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
-        
-        else:
-            self.image_x_pos = self.image_x_pos - changex
-            self.image_y_pos = self.image_y_pos - changey
-            self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
+
+        if self.animation_variable == 1:
+            if posx >= 0 and posx <= 141 and posy >= 0 and posy <= 79:
+                self.image_x_pos = self.image_x_pos - changex
+                self.image_y_pos = self.image_y_pos + changey
+                self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
+            
+            elif posx >= 0 and posx <= 138 and posy >= 80 and posy <= 159:
+                self.image_x_pos = self.image_x_pos + changex
+                self.image_y_pos = self.image_y_pos + changey
+                self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
+            
+            elif posx >= 139 and posx <= 268 and posy >= 80 and posy <= 161:
+                self.image_x_pos = self.image_x_pos + changex
+                self.image_y_pos = self.image_y_pos - changey
+                self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
+            
+            else:
+                self.image_x_pos = self.image_x_pos - changex
+                self.image_y_pos = self.image_y_pos - changey
+                self.image_label.place(x=self.image_x_pos, y=self.image_y_pos)
         
         # ticker
-        self.after(10, self.run_animation)
-        print(self.image_x_pos, self.image_y_pos)
+        self.after(self.tick_time, self.run_animation)
+        #print(self.image_x_pos, self.image_y_pos)
                 
 # Create an object of the Gui class when this module is executed
 if (__name__ == "__main__"):
