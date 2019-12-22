@@ -15,11 +15,11 @@ def create_hero_class():
     print("It is a honor to meet you", hero_name, "what is your proffessions?")
     print("Are you a 'knight' or a 'sorcerer' ?")
     hero_class = str(input())
-    if hero_class == "knight"
+    if hero_class == "knight":
         print("Please take that sword", hero_name, "and slay or your enemies with its blade")
         print("You have received a long sword")
         hero_weapon = (5,3)
-    elif hero_class == "sorcerer"
+    elif hero_class == "sorcerer":
         print("Please take that wand", hero_name, "and slay or your enemies with magic")
         print("You have received a wand of light")
         hero_weapon = (6,1)
